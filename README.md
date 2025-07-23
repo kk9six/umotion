@@ -96,6 +96,8 @@ If you find this code useful in your research, please cite:
 }
 ```
 
-### Misc
+## Misc
 
-Note: If you encounter any issues or have questions, feel free to open an issue. You may also contact me via the email address: liu.huakun.li0@is.naist.jp.
+The code for sensing the distance matrix using the DW3000 is available at [DW3000](https://github.com/kk9six/dw3000.git).
+
+If you encounter any issues or have questions, feel free to open an issue. You may also contact me via the email address: liu.huakun.li0@is.naist.jp.
