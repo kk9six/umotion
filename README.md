@@ -27,6 +27,8 @@ models/smpl/basicModel_neutral_lbs_10_207_0_v1.1.0.pkl
 
 ### Prepare datasets
 
+> Change `base_dir` in `src/config` to your project directory.
+
 Download the dataset and put it into `datasets/raw`. The directory structure should look like the following:
 
 ```
@@ -52,7 +54,7 @@ datasets/raw/uip/[(test)(train)].pt
 Make sure to have gdown installed
 
 ```sh
-pip install --user gdown
+pip install gdown
 ```
 
 Then, run the following command line:
