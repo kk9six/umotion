@@ -1,0 +1,58 @@
+seed: 3796
+dirs:
+  base: ???
+  src: ${dirs.base}/src
+  data: ${dirs.base}/datasets
+  video: ${dirs.base}/videos
+  models: ${dirs.base}/models
+  smpl: ${dirs.models}/smpl
+  shape_estimator: ${dirs.models}/shape_estimator
+  pose_estimator: ${dirs.models}/pose_estimator_noise
+
+dataset:
+  training_data:
+    - amass_-TotalCapture
+    - dipimu_train
+  test_data:
+    - totalcapture_test
+    - dipimu_test
+
+training:
+  noise_range: 0.1
+  learning_rate: 1e-05
+  seq_length: 30  # Sequence length of training data
+  normalization: true
+  num_epochs: 10
+  batch_size: 512
+  train_ratio: 0.9
+  val_ratio: 0.1
+  val_step: 10  # Validate every n epochs
+  save_step: 50  # Save model every n epochs
+  pretrain_epoch: -1  # Pretrain for n epochs
+  overwrite: false  # Overwrite existing model
+
+pose_estimator:
+  base_model_path: pose_estimator
+  input_attrs:
+    - accs
+    - oris
+    - dists
+  input_hidden_attrs:  # initial hidden state
+    - poses_global
+    - joints
+  output_attrs:
+    - poses_global
+  input_size: 87
+  input_hidden_size: 144
+  output_size: 96
+  hidden_size: 256
+  num_layers: 2
+  dropout: 0.4
+
+shape_estimator:
+  input_attrs:
+    - H
+    - W
+    - D
+
+rotation_6d: "columns"
